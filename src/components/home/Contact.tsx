@@ -25,9 +25,18 @@ export function Contact() {
           >
             {siteConfig.email}
           </a>
+          <a
+            href={`tel:${siteConfig.phone.e164}`}
+            className="mt-3 block text-lg font-medium tracking-tight transition-colors hover:text-accent sm:text-xl"
+          >
+            {siteConfig.phone.display}
+          </a>
           <div className="mt-6 flex flex-wrap gap-3">
             <ButtonLink href={`mailto:${siteConfig.email}`}>
               Send an email
+            </ButtonLink>
+            <ButtonLink href={`tel:${siteConfig.phone.e164}`} variant="ghost">
+              Call
             </ButtonLink>
             <CopyEmailButton email={siteConfig.email} />
             <ButtonLink href={siteConfig.resumePath} variant="ghost" download>

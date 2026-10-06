@@ -17,6 +17,7 @@ export function homeJsonLd() {
         description: siteConfig.description,
         url: siteConfig.url,
         email: `mailto:${siteConfig.email}`,
+        telephone: siteConfig.phone.e164,
         address: {
           "@type": "PostalAddress",
           addressLocality: siteConfig.location.city,

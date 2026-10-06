@@ -8,6 +8,7 @@ export const siteConfig = {
   locale: "en_IN",
   location: { city: "Pune", country: "India", countryCode: "IN" },
   email: "r.wakle21@gmail.com",
+  phone: { e164: "+919561616635", display: "+91 95616 16635" },
   resumePath: "/rahul-wakle-resume.pdf",
   social: {
     github: "https://github.com/Rahulwakle21",
