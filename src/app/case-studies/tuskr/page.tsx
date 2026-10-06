@@ -22,7 +22,7 @@ import { caseStudyJsonLd } from "@/lib/structured-data";
 
 const path = `/case-studies/${tuskr.slug}`;
 const description =
-  "How Rahul Wakle builds and improves Tuskr, a test management SaaS: React and TypeScript architecture, performance engineering, Core Web Vitals and technical SEO.";
+  "How Rahul Wakle builds and improves Tuskr, a test case management SaaS: React and TypeScript architecture, performance engineering, Core Web Vitals and technical SEO.";
 
 export const metadata: Metadata = {
   title: `${tuskr.kicker}: ${tuskr.title}`,

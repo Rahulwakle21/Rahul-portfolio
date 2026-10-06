@@ -9,7 +9,7 @@ export const tuskr = {
     { label: "Company", value: "Celoxis Technologies" },
     { label: "Role", value: "Software Developer" },
     { label: "Period", value: "Jan 2025 — Present" },
-    { label: "Domain", value: "Test management SaaS" },
+    { label: "Domain", value: "Test case management SaaS" },
   ],
   product:
     "Tuskr is a cloud test case management product from Celoxis. QA and engineering teams use it to organise test cases, plan and execute test runs, and report on software quality — a workflow-heavy, data-dense SaaS where clarity and speed directly affect how teams ship.",
