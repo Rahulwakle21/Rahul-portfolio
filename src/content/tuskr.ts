@@ -1,5 +1,5 @@
 export const tuskr = {
-  slug: "tuskr",
+  slug: "tuskr1",
   name: "Tuskr",
   kicker: "Product Engineering — Tuskr",
   title: "Building & improving a SaaS product",
