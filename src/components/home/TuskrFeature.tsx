@@ -13,11 +13,26 @@ export function TuskrFeature() {
       title={tuskr.kicker}
       intro="My strongest work: shipping and improving a real SaaS product, end to end."
     >
-      <article aria-label="Tuskr case study summary" className="overflow-clip rounded-3xl border border-line bg-surface">
+      <article
+        aria-label="Tuskr case study summary"
+        className="reveal overflow-clip rounded-3xl border border-line bg-surface shadow-2xl shadow-shadow"
+      >
         <div className="relative border-b border-line p-6 sm:p-10">
-          <div aria-hidden="true" className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(ellipse_at_top_right,color-mix(in_oklab,var(--color-accent)_14%,transparent),transparent_65%)]" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,color-mix(in_oklab,var(--color-accent)_18%,transparent),transparent_55%)]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-accent/40 to-transparent"
+          />
           <div className="relative">
-            <Eyebrow className="text-accent">Tuskr · SaaS product engineering</Eyebrow>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-accent/35 bg-accent/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+                Featured
+              </span>
+              <Eyebrow className="text-accent">Tuskr · SaaS product engineering</Eyebrow>
+            </div>
             <p className="mt-4 max-w-2xl text-2xl font-medium tracking-tight text-balance sm:text-4xl">
               “{tuskr.tagline}”
             </p>

@@ -12,12 +12,13 @@ export function Contact() {
     <Section
       id="contact"
       index="05"
-      eyebrow="Contact"
+      tone="cta"
+      eyebrow="Contact."
       title="Hiring for full-stack, backend or frontend? Let’s talk."
       intro={`Based in ${siteConfig.location.city}, ${siteConfig.location.country} (IST, UTC+5:30). Open to Software Developer, React.js and Full-Stack roles.`}
     >
       <div className="reveal-stagger grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-        <div className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
+        <div className="surface-glass rounded-2xl border border-accent/25 p-6 shadow-xl shadow-shadow sm:p-8">
           <a
             href={`mailto:${siteConfig.email}`}
             className="block text-2xl font-semibold tracking-tight break-all transition-colors hover:text-accent sm:text-3xl"

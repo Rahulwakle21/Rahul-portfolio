@@ -4,7 +4,7 @@ export const tuskr = {
   kicker: "Product Engineering — Tuskr",
   title: "Building & improving a SaaS product",
   tagline: "Building interfaces that scale beyond the screen.",
-  stack: ["React", "TypeScript", "Redux Toolkit", "Material UI", "REST APIs", "Node.js", "Express.js"],
+  stack: ["React", "TypeScript", "Redux Toolkit", "Material UI", "REST APIs", "Node.js", "Express.js", "PostgreSQL"],
   meta: [
     { label: "Company", value: "Celoxis Technologies" },
     { label: "Role", value: "Software Developer" },

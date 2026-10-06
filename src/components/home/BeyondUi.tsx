@@ -10,9 +10,12 @@ export function BeyondUi() {
       title="JSX is the last step, not the first."
       intro="Every feature I ship passes through the same questions — from the customer call to how it behaves in production."
     >
-      <ol className="reveal grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+      <ol className="reveal grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {beyondUi.map((item, i) => (
-          <li key={item.step} className="flex flex-col gap-3 bg-bg p-5">
+          <li
+            key={item.step}
+            className="group flex flex-col gap-3 rounded-2xl border border-line bg-surface/60 p-5 transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-accent/25 hover:bg-surface"
+          >
             <span aria-hidden="true" className="font-mono text-xs text-accent">
               {String(i + 1).padStart(2, "0")}
             </span>

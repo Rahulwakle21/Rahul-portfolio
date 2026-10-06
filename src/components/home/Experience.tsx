@@ -9,9 +9,11 @@ export function Experience() {
           <li key={role.company} className="reveal relative">
             <span
               aria-hidden="true"
-              className={`absolute top-2 -left-[31px] h-3 w-3 rounded-full border-2 border-bg sm:-left-[47px] ${role.current ? "bg-accent" : "bg-line-strong"}`}
+              className={`absolute top-2 -left-[31px] h-3 w-3 rounded-full border-2 border-bg sm:-left-[47px] ${role.current ? "bg-accent shadow-[0_0_12px_var(--color-accent)]" : "bg-line-strong"}`}
             />
-            <article className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
+            <article
+              className={`rounded-2xl border bg-surface p-6 sm:p-8 ${role.current ? "border-accent/25 shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-accent)_12%,transparent),0_16px_40px_-16px_var(--color-shadow)]" : "border-line"}`}
+            >
               <header className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="text-xl font-semibold tracking-tight">
