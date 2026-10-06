@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #0a0b0d;
+  --color-surface: #111317;
+  --color-surface-2: #171a1f;
+  --color-line: #262a31;
+  --color-line-strong: #363b44;
+  --color-text: #eceef1;
+  --color-muted: #a1a8b3;
+  --color-accent: #7ee2a8;
+  --color-accent-ink: #062a17;
+  --color-warn: #f3c065;
+  --color-bad: #ff8a80;
+  --color-syntax-keyword: #c792ea;
+  --color-syntax-type: #82aaff;
+  --color-shadow: rgb(0 0 0 / 0.4);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Explicit choice (data-theme) wins; otherwise follow the OS preference. */
+@custom-variant light {
+  :root[data-theme="light"] & {
+    @slot;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) & {
+      @slot;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --color-bg: #f7f8fa;
+    --color-surface: #ffffff;
+    --color-surface-2: #f1f3f6;
+    --color-line: #e2e5ea;
+    --color-line-strong: #c9ced6;
+    --color-text: #0d1117;
+    --color-muted: #4f5864;
+    --color-accent: #0b7a43;
+    --color-accent-ink: #ffffff;
+    --color-warn: #8f5400;
+    --color-bad: #b4302a;
+    --color-syntax-keyword: #7c3aed;
+    --color-syntax-type: #1d4ed8;
+    --color-shadow: rgb(15 23 42 / 0.08);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      color-scheme: light;
+      --color-bg: #f7f8fa;
+      --color-surface: #ffffff;
+      --color-surface-2: #f1f3f6;
+      --color-line: #e2e5ea;
+      --color-line-strong: #c9ced6;
+      --color-text: #0d1117;
+      --color-muted: #4f5864;
+      --color-accent: #0b7a43;
+      --color-accent-ink: #ffffff;
+      --color-warn: #8f5400;
+      --color-bad: #b4302a;
+      --color-syntax-keyword: #7c3aed;
+      --color-syntax-type: #1d4ed8;
+      --color-shadow: rgb(15 23 42 / 0.08);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 30% 0%, #000 30%, transparent 75%);
+}
+
+/* Skip rendering off-screen sections until they approach the viewport. */
+@utility lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes intro-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/*
+ * Scroll-driven reveals are progressive enhancement: without support (or with
+ * reduced motion) nothing is hidden, so content is always visible and crawlable.
+ */
+@layer components {
+  .scroll-progress {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .intro {
+      animation: intro-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
+    }
+
+    @supports (animation-timeline: view()) {
+      .reveal,
+      .reveal-stagger > * {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        /* Fixed distances so tall and short elements reveal at the same pace. */
+        animation-range: entry 0px entry 260px;
+      }
+
+      .reveal-stagger > :nth-child(3n + 2) {
+        animation-range: entry 60px entry 320px;
+      }
+
+      .reveal-stagger > :nth-child(3n) {
+        animation-range: entry 120px entry 380px;
+      }
+
+      .scroll-progress {
+        display: block;
+        transform-origin: left;
+        animation: grow-x linear both;
+        animation-timeline: scroll(root);
+      }
+    }
+  }
 }
