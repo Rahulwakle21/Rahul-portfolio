@@ -77,19 +77,45 @@ export const skills: SkillGroup[] = [
   {
     layer: "01",
     name: "Frontend",
-    items: ["React.js", "TypeScript", "JavaScript", "Redux Toolkit", "React Hooks", "Material UI", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"],
+    items: [
+      "React.js",
+      "JavaScript",
+      "TypeScript",
+      "Redux Toolkit",
+      "React Hooks",
+      "HTML5",
+      "CSS3",
+      "Material UI",
+      "Bootstrap",
+      "Tailwind CSS",
+    ],
   },
-  { layer: "02", name: "Backend", items: ["Node.js", "Express.js", "REST APIs"] },
-  { layer: "03", name: "Data", items: ["PostgreSQL", "MySQL", "MongoDB"] },
+  {
+    layer: "02",
+    name: "Backend",
+    items: ["Node.js", "Express.js", "RESTful API design", "Microservices", "Integration", "Authentication flows"],
+  },
+  { layer: "03", name: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB"] },
   {
     layer: "04",
-    name: "Performance & Web",
-    items: ["Code splitting", "Lazy loading", "Memoization", "Render optimisation", "Core Web Vitals", "Technical SEO", "Responsive UI"],
+    name: "Cloud",
+    items: ["AWS (EC2, S3, Lambda, Amplify)", "CI/CD", "Monitoring", "Git", "GitHub"],
   },
   {
     layer: "05",
-    name: "Workflow",
-    items: ["Git", "GitHub", "Agile", "Cursor", "Claude", "ChatGPT", "GitHub Copilot", "Prompt engineering"],
+    name: "Practices & Tools",
+    items: [
+      "System Design",
+      "Frontend Architecture",
+      "User Onboarding",
+      "Agile/Scrum",
+      "AI-Assisted Development (Claude, Cursor, ChatGPT, GitHub Copilot)",
+    ],
+  },
+  {
+    layer: "06",
+    name: "Performance",
+    items: ["Code Splitting", "Lazy Loading", "Memoization", "Render Optimization", "Core Web Vitals", "Responsive UI"],
   },
 ];
 
